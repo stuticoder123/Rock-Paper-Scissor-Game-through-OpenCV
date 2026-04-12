@@ -1,24 +1,24 @@
 """
 ╔═══════════════════════════════════════════════════════════════════════╗
-║          ROCK · PAPER · SCISSORS  ──  PRO EDITION                    ║
-║          Developed by Akshay Gurav                                    ║
+║          ROCK · PAPER · SCISSORS  ──  PRO EDITION                     ║
+║          Developed by Stuti Gupta                                      ║
 ║                                                                       ║
 ║  SPLIT-SCREEN LAYOUT:                                                 ║
-║   LEFT  → AI panel  (shows AI move as animated gesture art)          ║
-║   RIGHT → Your camera feed with YOLO detection overlay               ║
-║   CENTER→ VS badge, score bar, round timer                           ║
+║   LEFT  → AI panel  (shows AI move as animated gesture art)           ║
+║   RIGHT → Your camera feed with YOLO detection overlay                ║
+║   CENTER→ VS badge, score bar, round timer                            ║
 ║                                                                       ║
 ║  HOW TO PLAY:                                                         ║
-║   1. Show your hand gesture to the camera                            ║
-║   2. Press SPACE to lock in your move (1s countdown)                 ║
-║   3. AI reveals its move  →  Winner announced!                       ║
-║   4. Play until all rounds done                                      ║
+║   1. Show your hand gesture to the camera                             ║
+║   2. Press SPACE to lock in your move (1s countdown)                  ║
+║   3. AI reveals its move  →  Winner announced!                        ║
+║   4. Play until all rounds done                                       ║
 ║                                                                       ║
 ║  CONTROLS:                                                            ║
-║   SPACE  → Lock detected move                                        ║
-║   R      → Restart / New game                                        ║
-║   N      → Switch camera                                             ║
-║   ESC    → Quit                                                      ║
+║   SPACE  → Lock detected move                                         ║
+║   R      → Restart / New game                                         ║
+║   N      → Switch camera                                              ║
+║   ESC    → Quit                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 """
 
@@ -633,7 +633,7 @@ prev_time  = time.time()
 fail_count = 0
 
 print("=" * 58)
-print("  RPS PRO EDITION  |  by Akshay Gurav")
+print("  RPS PRO EDITION  |  by Stuti Gupta")
 print("  SPACE → lock move  |  R → restart  |  N → cam  |  ESC")
 print("=" * 58 + "\n")
 
@@ -679,7 +679,7 @@ while True:
             "detections": detections, "_t": now,
         })
         draw_input_screen(canvas, inp_str, inp_err, now)
-        cv2.imshow("RPS PRO  |  Akshay Gurav", canvas)
+        cv2.imshow("RPS PRO  |  Stuti Gupta", canvas)
         key = cv2.waitKey(1) & 0xFF
         if key == 27: break
         elif key == 13:   # ENTER
@@ -720,7 +720,7 @@ while True:
         cyc = WIN_H - 50 - 38
         put_centered(canvas, msg, cxc, cyc, fs=0.60, colour=col)
 
-        cv2.imshow("RPS PRO  |  Akshay Gurav", canvas)
+        cv2.imshow("RPS PRO  |  Stuti Gupta", canvas)
         key = cv2.waitKey(1) & 0xFF
         if key == 27: break
         elif key == ord(' '):
@@ -740,7 +740,7 @@ while True:
     # ── COUNTDOWN ────────────────────────────────────────────────
     elif ph == PHASE_COUNTDOWN:
         canvas = build_frame(raw_frame, state)
-        cv2.imshow("RPS PRO  |  Akshay Gurav", canvas)
+        cv2.imshow("RPS PRO  |  Stuti Gupta", canvas)
         cv2.waitKey(1)
 
         elapsed = now - state["countdown_start"]
@@ -764,7 +764,7 @@ while True:
     # ── RESULT ───────────────────────────────────────────────────
     elif ph == PHASE_RESULT:
         canvas = build_frame(raw_frame, state)
-        cv2.imshow("RPS PRO  |  Akshay Gurav", canvas)
+        cv2.imshow("RPS PRO  |  Stuti Gupta", canvas)
         cv2.waitKey(1)
 
         if now - state["result_timer"] >= RESULT_TIME:
@@ -780,7 +780,7 @@ while True:
     # ── GAME OVER ────────────────────────────────────────────────
     elif ph == PHASE_GAME_OVER:
         canvas = build_frame(raw_frame, state)
-        cv2.imshow("RPS PRO  |  Akshay Gurav", canvas)
+        cv2.imshow("RPS PRO  |  Stuti Gupta", canvas)
         key = cv2.waitKey(1) & 0xFF
         if key == 27: break
         elif key == ord('r'):
@@ -793,4 +793,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-print("\n[DONE]  Thanks for playing!  —  Akshay Gurav\n")
+print("\n[DONE]  Thanks for playing!  —  Stuti Gupta\n")
