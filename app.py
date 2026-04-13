@@ -1,7 +1,7 @@
 """
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║          ROCK · PAPER · SCISSORS  ──  PRO EDITION                     ║
-║          Developed by Stuti Gupta                                      ║
+║          Developed by Stuti Gupta                                     ║
 ║                                                                       ║
 ║  SPLIT-SCREEN LAYOUT:                                                 ║
 ║   LEFT  → AI panel  (shows AI move as animated gesture art)           ║
@@ -617,8 +617,8 @@ cap, cam_idx = get_camera(0)
 if cap is None:
     print("[ERROR] No camera."); exit(1)
 
-cv2.namedWindow("RPS PRO  |  Akshay Gurav", cv2.WINDOW_NORMAL)
-cv2.resizeWindow("RPS PRO  |  Akshay Gurav", WIN_W, WIN_H)
+cv2.namedWindow("RPS PRO  |  Stuti Gupta", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("RPS PRO  |  Stuti Gupta", WIN_W, WIN_H)
 
 # ────────────────────────────────────────────────────────────────────────────
 #  MAIN LOOP
@@ -654,7 +654,7 @@ while True:
     prev_time = now
 
     # ── YOLO  ────────────────────────────────────────────────────
-    results    = model(raw_frame, stream=True, verbose=False)
+    results = model(raw_frame, stream=True, verbose=False, conf=0.7)
     detections = []
     best_det   = None
 
